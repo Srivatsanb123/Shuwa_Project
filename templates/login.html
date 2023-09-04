@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Shuwa</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='Images/logo.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <!-- Include Bootstrap CSS and JavaScript -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="text-center">
+                    <img src="{{ url_for('static',filename='Images/website-logo.jpg') }}" alt="Shuwa application" class="img-fluid">
+                </div>
+                <br><br>
+                <form method="post">
+                    <h1 class="text-center" style="font-family: 'Lato', sans-serif;">Login to Your Account</h1>
+                    <br><br>
+                    {% if error %}
+                        <p class="text-danger">{{ error }}</p>
+                    {% endif %}
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email ID" autocomplete="off" name="email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                    </div>
+                    <p style="font-size: 16px;" class="text-center">If you don't have an account, <a href="./signup" style="color: #492569;">Create one</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

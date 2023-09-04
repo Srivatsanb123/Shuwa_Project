@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuwa - Home Page</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='Images/logo.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='Images/website-logo.jpg') }}" alt="Shuwa - Sign language Translator and Trainer Application" width="150" height="35">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./learning" target="_blank">Learning</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./about" target="_blank">About</a>
+                </li>
+                {% if username %}
+                <li class="nav-item">
+                    <button class="btn btn-danger Logout">Logout</button>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="btn btn-primary" href="./login">Join Now</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Title of the application -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 order-md-1">
+                <img src="{{ url_for('static', filename='Images/Sign-language-training.jpg') }}" alt="Welcome Image" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6 order-md-2">
+                <img src="{{ url_for('static', filename='Images/website-logo.jpg') }}" alt="Website Logo" class="img-fluid">
+                <h1 class="mt-4" style="font-family: 'Lato', sans-serif;">Sign Language Translator and Trainer</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Description about translation -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 order-md-4">
+                <img src="{{ url_for('static', filename='Images/sign-language-speaking-2.jpg') }}" alt="Sign language translation" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6 order-md-3">
+                <p class="lead">The primary purpose of Shuwa is to translate sign language into the language that is desired. This allows deaf people to communicate more easily with people who do not understand sign language and vice versa. This application helps bridge the communication gap between the deaf and hearing communities.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Description about training -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 order-md-5">
+                <img src="{{ url_for('static', filename='Images/Welcome-image.jpg') }}" alt="Sign language translation" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6 order-md-6">
+                <p class="lead">Additionally, you can develop the basic skills that you need in order to effectively communicate with people who have hearing disabilities by learning the basics of sign language. You can also be familiar with the different tools that are available to assist people with hearing disabilities, such as hearing aids and captioning services.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Join Now and Start learning buttons -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 order-md-7">
+                <a href="./learning" class="btn btn-primary btn-lg btn-block" target="_blank">Start learning &rarr;</a>
+            </div>
+            {% if username %}
+            <div class="col-md-6 order-md-8">
+                <a href="./trainer" class="btn btn-success btn-lg btn-block" target="_blank">Trainer &rarr;</a>
+            </div>
+            {% else %}
+            <div class="col-md-6 order-md-9">
+                <a href="./login" class="btn btn-primary btn-lg btn-block">Join Now &rarr;</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Footer of the homepage -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>&copy; Venkatbalaji M & Srivatsan B | All Rights Reserved &reg;</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript and jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+    <script src="{{url_for('static',filename='js/Logout.js')}}"></script>
+</body>
+</html>
